@@ -7,21 +7,23 @@
     "packages/*"
   ],
   "scripts": {
-    "upgrade-deps": "npm-check-updates --deep -u",
     "build": "turbo run build",
     "dev": "turbo run dev",
+    "format": "prettier --write \"**/*.{ts,tsx,md}\"",
     "lint": "turbo run lint",
-    "format": "prettier --write \"**/*.{ts,tsx,md}\""
+    "sort-deps": "sort-package-json 'package.json' 'apps/*/package.json' 'packages/*/package.json'",
+    "upgrade-deps": "npm-check-updates --deep -u"
   },
   "devDependencies": {
+    "@kanban/eslint-config-custom": "workspace:*",
     "@manypkg/cli": "^0.20.0",
-    "eslint-config-custom": "workspace:*",
     "npm-check-updates": "^16.7.10",
     "prettier": "latest",
+    "sort-package-json": "^2.4.1",
     "turbo": "latest"
   },
+  "packageManager": "pnpm@7.28.0",
   "engines": {
     "node": ">=14.0.0"
-  },
-  "packageManager": "pnpm@7.28.0"
+  }
 }
